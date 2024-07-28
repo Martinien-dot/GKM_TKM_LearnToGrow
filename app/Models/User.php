@@ -20,6 +20,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'school_id',
+        'region_id',
+        'commune_id',
+        'class_id',
     ];
 
     /**
@@ -44,4 +49,27 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+     // Relations
+
+     public function school()
+     {
+         return $this->belongsTo(School::class);
+     }
+ 
+     public function region()
+     {
+         return $this->belongsTo(Region::class);
+     }
+ 
+     public function commune()
+     {
+         return $this->belongsTo(Commune::class);
+     }
+ 
+     public function class()
+     {
+         return $this->belongsTo(Classe::class);
+     }
 }
